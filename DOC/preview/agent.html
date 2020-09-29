@@ -1,0 +1,667 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:agent</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">企业</h1>
+<h2 id="-">企业列表</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/index</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>name</td>
+<td>否</td>
+<td>否</td>
+<td>姓名、手机号、企业名称</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 1,
+        &quot;per_page&quot;: 10,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 7,
+                &quot;admin_id&quot;: 11,
+                &quot;company_name&quot;: &quot;融泽网络科技&quot;,   公司名称
+                &quot;name&quot;: &quot;王总&quot;,                  联系人
+                &quot;phone&quot;: &quot;18955333320&quot;,         电话
+                &quot;retail_addr&quot;: &quot;浙江省杭州市余杭区崇杭街承安源翠府5-2-202&quot;, 地址
+                &quot;is_del&quot;: 0,
+                &quot;agent_id&quot;: 1,
+                &quot;create_time&quot;: &quot;2020-09-08 16:51:24&quot;,
+                &quot;update_time&quot;: &quot;2020-09-08 17:16:36&quot;
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h2 id="-">企业添加</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业添加</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/add</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_name</td>
+<td>是</td>
+<td>否</td>
+<td>企业名称</td>
+<td>杭州融泽网络科技</td>
+</tr>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>企业联系人</td>
+<td>陈总</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>是</td>
+<td>否</td>
+<td>企业电话</td>
+<td>18955333313</td>
+</tr>
+<tr>
+<td>retail_addr</td>
+<td>是</td>
+<td>否</td>
+<td>地址</td>
+<td>绿地中央广场</td>
+</tr>
+<tr>
+<td>password</td>
+<td>是</td>
+<td>否</td>
+<td>密码</td>
+<td>123456</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;:
+}
+</code></pre><hr>
+<h2 id="-">企业编辑</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业编辑</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/edit</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_name</td>
+<td>是</td>
+<td>否</td>
+<td>企业名称</td>
+<td>杭州融泽网络科技</td>
+</tr>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>企业联系人</td>
+<td>陈总</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>是</td>
+<td>否</td>
+<td>企业电话</td>
+<td>18955333313</td>
+</tr>
+<tr>
+<td>retail_addr</td>
+<td>是</td>
+<td>否</td>
+<td>地址</td>
+<td>绿地中央广场</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键</td>
+<td>1</td>
+</tr>
+<tr>
+<td>admin_id</td>
+<td>是</td>
+<td>否</td>
+<td>关联登录id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;:
+}
+</code></pre><h2 id="-">编辑查询</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑查询</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/find</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;admin_id&quot;: 11,
+        &quot;company_name&quot;: &quot;融泽网络科技&quot;,   公司名称
+        &quot;name&quot;: &quot;王总&quot;,                  联系人
+        &quot;phone&quot;: &quot;18955333320&quot;,         电话
+        &quot;retail_addr&quot;: &quot;浙江省杭州市余杭区崇杭街承安源翠府5-2-202&quot;, 地址
+        &quot;is_del&quot;: 0,
+        &quot;agent_id&quot;: 1,
+        &quot;create_time&quot;: &quot;2020-09-08 16:51:24&quot;,
+        &quot;update_time&quot;: &quot;2020-09-08 17:16:36&quot;
+    }
+}
+</code></pre><hr>
+<h2 id="-">企业删除</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业删除</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/delete</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;删除成功&quot;,
+    &quot;data&quot;:
+}
+</code></pre><hr>
+<h2 id="-">坐席列表</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/sitTableList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>id</td>
+<td>否</td>
+<td>是</td>
+<td>搜索</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 5,
+        &quot;per_page&quot;: 10,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 5,
+                &quot;start_time&quot;: 1599580800,   生效时间
+                &quot;expired_time&quot;: 1612886399, 有效时间
+                &quot;type&quot;: 1,                  坐席类型：0-体验 1-正式
+                &quot;status&quot;: 1,                状态: 0-过期 1-正常
+                &quot;company_id&quot;: 7,
+                &quot;create_time&quot;: &quot;2020-09-09 11:58:52&quot;
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h2 id="-">坐席添加</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席添加</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/sitTableAdd</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_time</td>
+<td>是</td>
+<td>否</td>
+<td>生效时间</td>
+<td>2020-09-09</td>
+</tr>
+<tr>
+<td>expired_time</td>
+<td>是</td>
+<td>否</td>
+<td>失效时间</td>
+<td>2020-09-09</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>num</td>
+<td>否</td>
+<td>否</td>
+<td>新增坐席数量（非体验）</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;:
+}
+</code></pre><hr>
+<h2 id="-">坐席续费</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席续费</td>
+<td>http</td>
+<td>post</td>
+<td>/index/AnCompanyManage/sitTableRenew</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_time</td>
+<td>否</td>
+<td>否</td>
+<td>生效时间（未到期的不传）</td>
+<td>2020-09-09</td>
+</tr>
+<tr>
+<td>expired_time</td>
+<td>是</td>
+<td>否</td>
+<td>失效时间</td>
+<td>2020-09-09</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">数据返回</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;:
+}
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

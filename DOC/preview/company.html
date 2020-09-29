@@ -1,0 +1,1978 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:company</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<blockquote>
+<ul>
+<li>版本: 1.0</li>
+<li>日期: 2020/4/21</li>
+</ul>
+</blockquote>
+<h1 id="-">客户资料字段管理</h1>
+<h2 id="-">字段列表</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字段列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpField/fieldList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,//字段id （如果id:17 ，即字段名称为标签，编辑弹框有区别）
+            &quot;title&quot;: &quot;学校&quot;,//字段名称
+            &quot;type&quot;: 0,//字段类型 1单行文本 2多行文本 3数字 4单选标签 5多选标签 6日期 7时间 8日期+时间 9附件
+            &quot;update_time&quot;: null,//更新时间
+            &quot;update_user_name&quot;: null,//更新用户名称
+            &quot;status&quot;: 1,//状态：1开启 2关闭
+            &quot;field_status&quot;: 0,//0不可修改状态 1可修改状态
+            &quot;edit_status&quot;: 0,//0不可编辑 1可编辑
+            &quot;delete_status&quot;: 0//0不可删除 1可删除,
+            &quot;label_list&quot;: [//标签信息
+                {
+                    &quot;id&quot;: 3,//标签id
+                    &quot;label_name&quot;: &quot;苹果&quot;,//标签名称
+                    &quot;color_info&quot;: &quot;&quot;//背景颜色 
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;label_name&quot;: &quot;西瓜&quot;,
+                    &quot;color_info&quot;: null//无颜色
+                }
+            ],
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;运动00&quot;,
+            &quot;type&quot;: 1,
+            &quot;update_time&quot;: 1599555728,
+            &quot;update_user_name&quot;: null,//更新用户名称
+            &quot;status&quot;: 1,//状态：1开启 2关闭
+            &quot;field_status&quot;: 1,
+            &quot;edit_status&quot;: 1,
+            &quot;delete_status&quot;: 1,
+            &quot;label_list&quot;: [],//标签信息
+        }
+    ]
+}
+
+</code></pre><hr>
+<h2 id="-">添加字段</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>添加字段</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpField/addField</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>title</td>
+<td>是</td>
+<td>否</td>
+<td>字段名称</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>type</td>
+<td>是</td>
+<td>否</td>
+<td>字段类型 1单行文本 2多行文本 3数字 4单选标签 5多选标签 6日期 7时间 8日期+时间 9附件</td>
+<td>1</td>
+</tr>
+<tr>
+<td>label_list</td>
+<td>否</td>
+<td>是</td>
+<td>标签信息 当type字段类型为4/5 需要传 二维数组 按照排列顺序</td>
+<td>[[&#39;id&#39;=&gt;0,//添加标签传0,&#39;label_name&#39;,//标签名称]]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;添加成功&quot;,
+    &quot;data&quot;: []
+}
+
+</code></pre><hr>
+<h2 id="-">编辑字段</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>添加字段</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpField/editField</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>title</td>
+<td>是</td>
+<td>否</td>
+<td>字段名称</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>type</td>
+<td>是</td>
+<td>否</td>
+<td>字段类型 1单行文本 2多行文本 3数字 4单选标签 5多选标签 6日期 7时间 8日期+时间 9附件</td>
+<td>1</td>
+</tr>
+<tr>
+<td>label_list</td>
+<td>否</td>
+<td>是</td>
+<td>标签信息 当type字段类型为4/5 需要传 二维数组 按照排列顺序</td>
+<td>[[&#39;id&#39;=&gt;0,//添加标签传0 修改标签传标签id,&#39;label_name&#39;,//标签名称,&#39;color_info&#39;:&#39;&#39;,//背景颜色信息 无颜色传空 有颜色传</td>
+</tr>
+<tr>
+<td>label_id</td>
+<td>否</td>
+<td>是</td>
+<td>待删除的标签信息（新增加的不需要传） 当type字段类型为4/5 删除的标签id字符串,组合</td>
+<td>1,2,3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;编辑成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h2 id="-">改变字段状态</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>改变字段状态</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpField/changeFieldStatus</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>status</td>
+<td>是</td>
+<td>否</td>
+<td>状态 1开启 2关闭</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;停用成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h2 id="-">删除字段</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>删除字段</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpField/delField</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>字段id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;删除成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h1 id="-">跟进阶段设置</h1>
+<h2 id="-">阶段列表</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>阶段列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpFollowStage/stageInfo</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: {
+        &quot;follow_stage&quot;: [//跟进阶段列表
+            {
+                &quot;id&quot;: 1,//主键id
+                &quot;title&quot;: &quot;新线索&quot;,//名称
+            },
+            {
+                &quot;id&quot;: 47,
+                &quot;title&quot;: &quot;苹果&quot;,
+            }
+        ],
+        &quot;out_stage&quot;: {//输单模块
+            &quot;id&quot;: 9,//输单id
+            &quot;title&quot;: &quot;呢呢&quot;,//输单名称
+            &quot;out_reason&quot;: [//输单理由列表
+                {
+                    &quot;id&quot;: 11,//理由id
+                    &quot;title&quot;: &quot;客户不想上课了&quot;,//理由描述
+                },
+                {
+                    &quot;id&quot;: 12,
+                    &quot;title&quot;: &quot;课程无法满足客户要求&quot;,
+                },
+            ]
+        },
+        &quot;fail_stage&quot;: {//无效模块
+            &quot;id&quot;: 10,//无效id
+            &quot;title&quot;: &quot;无效客户&quot;,//无效名称
+            &quot;fail_reason&quot;: [//无效理由列表
+                {
+                    &quot;id&quot;: 14,//理由id
+                    &quot;title&quot;: &quot;多次联系不上&quot;,//理由描述
+                },
+                {
+                    &quot;id&quot;: 15,
+                    &quot;title&quot;: &quot;空号&quot;,
+                }
+            ]
+        }
+    }
+}
+
+</code></pre><hr>
+<h2 id="-">保存阶段设置</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>保存阶段设置</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpFollowStage/saveStage</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>是</td>
+<td>否</td>
+<td>企业id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>follow_stage</td>
+<td>否</td>
+<td>是</td>
+<td>跟进中阶段信息 二维数组 按照排列顺序</td>
+<td>[[&#39;id&#39;=&gt;0,//添加阶段传0 编辑传阶段id,&#39;title&#39;,//阶段名称]]</td>
+</tr>
+<tr>
+<td>out_title</td>
+<td>是</td>
+<td>否</td>
+<td>输单名称</td>
+<td>1</td>
+</tr>
+<tr>
+<td>out_reason</td>
+<td>否</td>
+<td>是</td>
+<td>输单理由 二维数组 按照排列顺序</td>
+<td>[[&#39;id&#39;=&gt;0,//添加理由传0 编辑传理由id,&#39;title&#39;,//理由名称]]</td>
+</tr>
+<tr>
+<td>fail_title</td>
+<td>是</td>
+<td>否</td>
+<td>无效名称</td>
+<td>1</td>
+</tr>
+<tr>
+<td>fail_reason</td>
+<td>否</td>
+<td>是</td>
+<td>无效理由 二维数组 按照排列顺序</td>
+<td>[[&#39;id&#39;=&gt;0,//添加理由传0 编辑传理由id,&#39;title&#39;,//理由名称]]</td>
+</tr>
+<tr>
+<td>del_stage_id</td>
+<td>是</td>
+<td>否</td>
+<td>删除跟进阶段id字符串,组合</td>
+<td>1,2</td>
+</tr>
+<tr>
+<td>del_out_reason_id</td>
+<td>是</td>
+<td>否</td>
+<td>删除输单理由id字符串,组合</td>
+<td>1，2</td>
+</tr>
+<tr>
+<td>del_fail_reason_id</td>
+<td>是</td>
+<td>否</td>
+<td>删除无效理由id字符串,组合</td>
+<td>1,2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 0,
+    &quot;msg&quot;: &quot;跟进阶段重复&quot;,
+    &quot;data&quot;: []
+}
+{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;保存成功&quot;,
+    &quot;data&quot;: []
+}
+
+</code></pre><hr>
+<h1 id="-">客户模块</h1>
+<h2 id="-">客户轨迹</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户轨迹</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpCustomer/travelInfo</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>是</td>
+<td>否</td>
+<td>客户id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 2,//轨迹id
+            &quot;title&quot;: &quot;呢呢&quot;,//标题
+            &quot;desc&quot;: &quot;姓名：zms&lt;br/&gt;星球：地球&lt;br/&gt;&quot;,//内容
+            &quot;create_time&quot;: 1599554052,//添加时间
+            &quot;way&quot;: 0,//轨迹类型 0：不可编辑的轨迹 反之为可编辑：1电话 2微信 3短信 4其它
+            &quot;operation_name&quot;: &quot;陈总&quot;//操作人名称
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;哈哈&quot;,
+            &quot;desc&quot;: &quot;下雨了凉快&quot;,
+            &quot;create_time&quot;: 1599554052,
+            &quot;way&quot;: 0,
+            &quot;operation_name&quot;: &quot;陈总&quot;
+        }
+    ]
+}
+
+</code></pre><hr>
+<h2 id="-">编辑轨迹内容</h2>
+<h3 id="-">接口信息</h3>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑轨迹内容</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpCustomer/editTravel</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>travel_id</td>
+<td>是</td>
+<td>否</td>
+<td>轨迹id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>是</td>
+<td>否</td>
+<td>内容</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">返回数据</h3>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+
+</code></pre><hr>
+<h1 id="-">管理</h1>
+<h2 id="-">部门管理</h2>
+<h3 id="-">部门列表</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/sitTableList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>name</td>
+<td>否</td>
+<td>是</td>
+<td>部门名称</td>
+<td>嘎嘎</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 2,
+        &quot;per_page&quot;: 11,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;财务&quot;,   部门名称
+                &quot;company_id&quot;: 7,
+                &quot;is_del&quot;: 0,      是否已删除 0-否 1-是
+                &quot;create_time&quot;: &quot;2020-09-10 15:14:59&quot;
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h3 id="-">部门列表下拉框</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门列表下拉框</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/selectList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;行政&quot;
+        }
+    ]
+}
+</code></pre><hr>
+<h3 id="-">部门添加</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门添加</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/branchAdd</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>部门名称</td>
+<td>嘎嘎</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">部门编辑</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门编辑</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/branchEdit</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>部门名称</td>
+<td>嘎嘎</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>嘎嘎</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">部门删除</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门删除</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/delete</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>嘎嘎</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;删除成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h2 id="-">员工管理</h2>
+<h3 id="-">员工列表</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>员工列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/list</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>name</td>
+<td>否</td>
+<td>是</td>
+<td>部门名称</td>
+<td>嘎嘎</td>
+</tr>
+<tr>
+<td>power_id</td>
+<td>否</td>
+<td>是</td>
+<td>权限id   0 或空位全部</td>
+<td>0 </td>
+</tr>
+<tr>
+<td>branch_id</td>
+<td>否</td>
+<td>是</td>
+<td>部门id   0 或空位全部</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 1,
+        &quot;per_page&quot;: 11,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 12,
+                &quot;nickname&quot;: &quot;哈哈嘻嘻&quot;,        姓名
+                &quot;username&quot;: &quot;18955333313&quot;,    电话
+                &quot;create_time&quot;: &quot;2020-09-10 16:26:55&quot;,
+                &quot;branch_id&quot;: 1,               部门id
+                &quot;power_id&quot;: 1,                权限id
+                &quot;is_del&quot;: 0,
+                &quot;power_name&quot;: &quot;敢死队&quot;,       权限名称
+                &quot;branch_name&quot;: &quot;行政&quot;         部门名称
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h3 id="-">员工添加</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>员工添加</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/addEmployee</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>是</td>
+<td>否</td>
+<td>手机号</td>
+<td>18955553333</td>
+</tr>
+<tr>
+<td>password</td>
+<td>是</td>
+<td>否</td>
+<td>密码</td>
+<td>112442</td>
+</tr>
+<tr>
+<td>nickname</td>
+<td>是</td>
+<td>否</td>
+<td>姓名</td>
+<td>xixi </td>
+</tr>
+<tr>
+<td>powerId</td>
+<td>是</td>
+<td>否</td>
+<td>权限id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>branchId</td>
+<td>是</td>
+<td>否</td>
+<td>部门id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">编辑员工</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑员工</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/editEmployee</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>username</td>
+<td>是</td>
+<td>否</td>
+<td>手机号</td>
+<td>18955553333</td>
+</tr>
+<tr>
+<td>nickname</td>
+<td>是</td>
+<td>否</td>
+<td>姓名</td>
+<td>xixi </td>
+</tr>
+<tr>
+<td>powerId</td>
+<td>是</td>
+<td>否</td>
+<td>权限id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>branchId</td>
+<td>是</td>
+<td>否</td>
+<td>部门id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">编辑查询</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑查询</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/findEmployee</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 12,
+        &quot;username&quot;: &quot;18955333313&quot;,
+        &quot;nickname&quot;: &quot;哈哈嘻嘻&quot;,
+        &quot;power_id&quot;: 1,
+        &quot;branch_id&quot;: 1
+    }
+}
+</code></pre><hr>
+<h3 id="-">员工删除</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>员工删除</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpEmployeeBranch/delEmployee</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><h1 id="-">设置</h1>
+<h2 id="-">坐席设置</h2>
+<h3 id="-">坐席列表</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpSitTableSet/sitTableList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>bindStatus</td>
+<td>否</td>
+<td>否</td>
+<td>绑定状态: 0-未绑定 1-绑定 2-全部</td>
+<td>2</td>
+</tr>
+<tr>
+<td>status</td>
+<td>是</td>
+<td>否</td>
+<td>过期状态: 0-过期 1-正常 2-全部</td>
+<td>2</td>
+</tr>
+<tr>
+<td>name</td>
+<td>否</td>
+<td>是</td>
+<td>搜索：姓名、手机号、序号</td>
+<td>嘎嘎</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 2,
+        &quot;per_page&quot;: 11,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 5,
+                &quot;start_time&quot;: 1599580800,     生效时间
+                &quot;expired_time&quot;: 1612886399,   失效时间
+                &quot;type&quot;: 1,                    坐席类型：0-体验 1-正式
+                &quot;company_id&quot;: 7,              企业id
+                &quot;status&quot;: 1,                  状态: 0-过期 1-正常
+                &quot;admin_id&quot;: 12,               绑定关联账号id
+                &quot;username&quot;: &quot;18955333313&quot;,    手机号
+                &quot;nickname&quot;: &quot;哈哈嘻嘻&quot;,       姓名
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h3 id="-">坐席绑定</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席绑定</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpSitTableSet/sitTableBind</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>是</td>
+<td>否</td>
+<td>绑定关联账号id</td>
+<td>10</td>
+</tr>
+<tr>
+<td>sitTableId</td>
+<td>是</td>
+<td>否</td>
+<td>坐席id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">坐席删除</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>坐席删除</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpSitTableSet/delete</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;删除成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h1 id="-">权限管理</h1>
+<h2 id="-">权限配置</h2>
+<h3 id="-">权限组列表</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>权限组列表</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/list</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagesize</td>
+<td>是</td>
+<td>否</td>
+<td>页面大小</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>否</td>
+<td>当前页</td>
+<td>1</td>
+</tr>
+<tr>
+<td>relevanceId</td>
+<td>是</td>
+<td>否</td>
+<td>关联id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;total&quot;: 2,
+        &quot;per_page&quot;: 11,
+        &quot;current_page&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;敢死队&quot;,       名称
+                &quot;relevance_id&quot;: 1,      关联id
+                &quot;data&quot;: null,           权限数据
+                &quot;remark&quot;: &quot;测试&quot;        描述
+            }
+        ]
+    }
+}
+</code></pre><hr>
+<h3 id="-">权限组下拉选项</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>权限组下拉选项</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/selectList</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;测试&quot;
+        }
+    ]
+}
+</code></pre><hr>
+<h3 id="-">权限组添加</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>权限组添加</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/add</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>权限组名称</td>
+<td>管理员</td>
+</tr>
+<tr>
+<td>data</td>
+<td>是</td>
+<td>否</td>
+<td>权限详细</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td>是</td>
+<td>否</td>
+<td>描述</td>
+<td>嘻嘻哈哈</td>
+</tr>
+<tr>
+<td>relevanceId</td>
+<td>是</td>
+<td>否</td>
+<td>关联id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">权限组编辑</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>权限组编辑</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/edit</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>否</td>
+<td>权限组名称</td>
+<td>管理员</td>
+</tr>
+<tr>
+<td>data</td>
+<td>是</td>
+<td>否</td>
+<td>权限详细</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td>是</td>
+<td>否</td>
+<td>描述</td>
+<td>嘻嘻哈哈</td>
+</tr>
+<tr>
+<td>relevanceId</td>
+<td>是</td>
+<td>否</td>
+<td>关联id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre><hr>
+<h3 id="-">编辑查询</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑查询</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/find</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;查询成功&quot;,
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;敢死队&quot;,   权限组名称
+        &quot;relevance_id&quot;: 1,  关联id
+        &quot;data&quot;: null,       权限
+        &quot;remark&quot;: &quot;测试&quot;    描述
+    }
+}
+</code></pre><hr>
+<h3 id="-">权限组删除</h3>
+<h4 id="-">接口信息</h4>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>协议</th>
+<th>请求方式</th>
+<th>请求地址</th>
+<th>数据返回格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑查询</td>
+<td>http</td>
+<td>post</td>
+<td>/index/CpPowerGroup/del</td>
+<td>json</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">请求参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必传</th>
+<th>可否为空</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>否</td>
+<td>主键id</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">数据返回</h4>
+<pre><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;成功&quot;,
+    &quot;data&quot;: []
+}
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
